@@ -20,6 +20,12 @@ var orm = {
             if(err) throw err;
             callBack(result);
         });
+    },
+    deleteOne: function(burgerID, callBack) {
+        connection.query("DELETE FROM burgers WHERE id = ?", [burgerID], function(err, result) {
+            if(err) throw err;
+            callBack(result);
+        });
     }
 }
 

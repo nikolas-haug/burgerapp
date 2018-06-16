@@ -2,22 +2,42 @@
 <h1>the index page!</h1>
 
 <ul>
-  {{#each burgers}}
-    <li>
-      <p>
-        {{this.id}}. {{this.burger_name}} - - - {{this.devoured}}
-
-        {{!-- TO DO - - - - FIX THIS --}}
-        <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
-            <input type="hidden" name="devoured" value="true">
-            <button type="submit">Devour</button>
-        </form>
-
-        {{!-- <button data-movieid="{{this.id}}" class="delmovie">Delete</button> --}}
-      </p>
-    </li>
-  {{/each}}
+    {{#each burgers}}
+        {{#unless this.devoured}}
+            <div style="background-color: pink;">
+            <li>
+            {{this.id}}
+                {{this.burger_name}}
+                <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="devoured" value="true">
+                    <button type="submit">Devour</button>
+                </form>
+                <form action="api/burgers/{{this.id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="deleted" value="true">
+                    <button type="submit">Delete Burger from DB</button>
+                </form>
+            </li>
+            </div>
+        {{/unless}}
+    {{/each}}
 </ul>
+
+<hr>
+
+<h2>Burgers That Have Been Eaten!</h2>
+			
+	{{#each burgers}}
+		{{#if this.devoured}}
+            <li>
+            {{this.id}}
+            {{this.burger_name}}
+            <form action="api/burgers/{{this.id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="deleted" value="true">
+                <button type="submit">Delete Burger from DB</button>
+            </form>
+            </li>
+        {{/if}}
+    {{/each}}
 
 <hr>
 

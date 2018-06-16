@@ -1,6 +1,7 @@
 var express = require("express");
     bodyParser = require("body-parser");
     exphbs = require("express-handlebars");
+    methodOverride = require("method-override");
 
 //import the exported connection and orm files
 var connection = require("./config/connection.js");
@@ -15,6 +16,9 @@ app.use(bodyParser.json());
 
 //sets up the express app to serve static files
 app.use(express.static("public"));
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
 //sets up the express app with handlebars layouts/templates
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

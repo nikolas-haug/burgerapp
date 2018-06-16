@@ -18,6 +18,11 @@ var burger = {
         orm.updateOne(eatenBurger, function(res) {
             callBack(res);
         });
+    },
+    deleteOne: function(deletedBurger, callBack) {
+        orm.deleteOne(deletedBurger, function(res) {
+            callBack(res);
+        });
     }
 }
 

@@ -4,23 +4,25 @@ var orm = require("../config/orm.js");
 var burger = {
     //select all of the burgers and their data
     selectAll: function(callBack) {
-        orm.selectAll(function(res) {
+        orm.selectAll("burgers", function(res) {
             callBack(res);
         });
     },
     //add a new burger to the db
     insertOne: function(newBurger, callBack) {
-        orm.insertOne(newBurger, function(res) {
-            callBack(res);
-        })
-    },
-    updateOne: function(eatenBurger, callBack) {
-        orm.updateOne(eatenBurger, function(res) {
+        orm.insertOne("burgers", "burger_name", newBurger, function(res) {
             callBack(res);
         });
     },
-    deleteOne: function(deletedBurger, callBack) {
-        orm.deleteOne(deletedBurger, function(res) {
+    //update the devoured data in the database - move burger to eaten section
+    updateOne: function(burgerID, callBack) {
+        orm.updateOne("burgers", "devoured", 1, burgerID, function(res) {
+            callBack(res);
+        });
+    },
+    //delete the selected burger from the database
+    deleteOne: function(burgerID, callBack) {
+        orm.deleteOne("burgers", burgerID, function(res) {
             callBack(res);
         });
     }

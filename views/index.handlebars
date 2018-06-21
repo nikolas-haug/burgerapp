@@ -1,47 +1,61 @@
+{{!-- header container --}}
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>burger eater</h1>
+    </div>
+</div>
 
-<h1>the index page!</h1>
+{{!-- main content container --}}
+<div class="container">
 
-<ul>
-    {{#each burgers}}
-        {{#unless this.devoured}}
-            <div style="background-color: pink;">
-            <li>
-            {{this.id}}
-                {{this.burger_name}}
-                <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="devoured" value="true">
-                    <button type="submit">Devour</button>
-                </form>
-                <form action="api/burgers/{{this.id}}?_method=DELETE" method="POST">
-                    <input type="hidden" name="deleted" value="true">
-                    <button type="submit">Delete Burger from DB</button>
-                </form>
-            </li>
-            </div>
-        {{/unless}}
-    {{/each}}
-</ul>
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="text-center">menu</h2>
+            <ul class="list-group">
+                {{#each burgers}}
+                    {{#unless this.devoured}}
+                    <li class="list-group-item">
+                        {{!-- {{this.id}} --}}
+                        <img src="assets/images/hamburger-bnw-64.png" alt="">
+                        {{this.burger_name}}
+                        <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="devoured" value="true">
+                            <button type="submit">Devour</button>
+                        </form>
+                    </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
 
-<hr>
-
-<h2>Burgers That Have Been Eaten!</h2>
-			
-	{{#each burgers}}
-		{{#if this.devoured}}
-            <li>
-            {{this.id}}
-            {{this.burger_name}}
-            <form action="api/burgers/{{this.id}}?_method=DELETE" method="POST">
-                <input type="hidden" name="deleted" value="true">
-                <button type="submit">Delete Burger from DB</button>
+        <div class="col-md-4 text-center">
+            <form action="/api/burgers" method="POST">
+                <input type="text" name="burgerName" id="burger-name">
+                <button type="submit">Add a burger</button>
             </form>
-            </li>
-        {{/if}}
-    {{/each}}
+            <img src="assets/images/hamburger-icon-128.png" alt="">
+        </div>
 
-<hr>
+        <div class="col-md-4">
+            <h2 class="text-center">eaten!</h2>
+            <ul class="list-group">
+            {{#each burgers}}
+                {{#if this.devoured}}
+                    <li class="list-group-item">
+                    {{!-- {{this.id}} --}}
+                    <img src="assets/images/hamburger-eaten-32.png" alt="" style="width: 24px">
+                    {{this.burger_name}}
+                        <form action="api/burgers/{{this.id}}?_method=DELETE" method="POST">
+                            <input type="hidden" name="deleted" value="true">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>
 
-<form action="/api/burgers" method="POST">
-    <input type="text" name="burgerName" id="burger-name">
-    <button type="submit">Add a burger</button>
-</form>
+    </div>
+
+{{!-- end of main container --}}
+</div>

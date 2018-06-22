@@ -1,7 +1,9 @@
 {{!-- header container --}}
 <div class="container">
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center py-3">
         <h1>burger eater</h1>
+        <hr>
+        <p>collect and eat all of your burgers here!</p>
     </div>
 </div>
 
@@ -10,17 +12,17 @@
 
     <div class="row">
         <div class="col-md-4">
-            <h2 class="text-center">menu</h2>
+            <h2 class="text-center py-2">menu</h2>
             <ul class="list-group">
                 {{#each burgers}}
                     {{#unless this.devoured}}
                     <li class="list-group-item">
                         {{!-- {{this.id}} --}}
-                        <img src="assets/images/hamburger-bnw-64.png" alt="">
-                        {{this.burger_name}}
                         <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
+                            <img src="assets/images/hamburger-bnw-64.png" alt="" class="pb-2">
+                            <span>{{this.burger_name}}</span>
                             <input type="hidden" name="devoured" value="true">
-                            <button type="submit">Devour</button>
+                            <button type="submit" class="btn-burger">Devour</button>
                         </form>
                     </li>
                     {{/unless}}
@@ -28,26 +30,30 @@
             </ul>
         </div>
 
-        <div class="col-md-4 text-center">
+        {{!-- form row for adding new burgers --}}
+        <div class="col-md-4 text-center pt-3">
+            <img src="assets/images/hamburger-icon-128.png" alt="">
             <form action="/api/burgers" method="POST">
                 <input type="text" name="burgerName" id="burger-name">
-                <button type="submit">Add a burger</button>
+                <br>
+                <button type="submit" class="mt-3 btn-new">Add a burger</button>
             </form>
-            <img src="assets/images/hamburger-icon-128.png" alt="">
+            
         </div>
 
+        {{!-- burgers eaten row --}}
         <div class="col-md-4">
-            <h2 class="text-center">eaten!</h2>
+            <h2 class="text-center py-2">eaten!</h2>
             <ul class="list-group">
             {{#each burgers}}
                 {{#if this.devoured}}
                     <li class="list-group-item">
                     {{!-- {{this.id}} --}}
-                    <img src="assets/images/hamburger-eaten-32.png" alt="" style="width: 24px">
-                    {{this.burger_name}}
                         <form action="api/burgers/{{this.id}}?_method=DELETE" method="POST">
+                            <img src="assets/images/hamburger-eaten-32.png" alt="" style="width: 24px">
+                            <span>{{this.burger_name}}</span>
                             <input type="hidden" name="deleted" value="true">
-                            <button type="submit">Delete</button>
+                            <button type="submit" class="btn-burger">Delete</button>
                         </form>
                     </li>
                 {{/if}}

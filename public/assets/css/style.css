@@ -2,3 +2,35 @@ body {
     background-color: tomato;
     font-family: 'Allerta', sans-serif;
 }
+
+/* buttons */
+.btn-burger {
+    float: right;
+    background-color: #A1E44D;
+    padding: 5px;
+    letter-spacing: 0.8px;
+}
+
+.btn-burger:hover {
+    background-color: #fff;
+    cursor: pointer;
+    transition: all, 0.7s;
+}
+
+.btn-new {
+    background-color: #3C91E6;
+    padding: 5px;
+}
+
+.btn-new:hover {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* typography */
+span {
+    display: inline-block;
+    font-size: 19px;
+    padding-top: 4px;
+    padding-left: 2px;
+}

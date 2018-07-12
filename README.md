@@ -12,6 +12,8 @@ The overall design was intended to be colorful with minimal style in order to fu
 
 ## Application overview:
 
+The application consists of a single page. The user may add a new burger to the list on the left side of the screen using the 'add a burger' input. After the burger has been added to the list on the left, the user may then choose to 'devour' it, or any of the other burgers on the list, and this updates the burger's 'devoured' attribute in the database, thus moving it to the right side of the screen under the 'eaten!' header. The user may then choose to delete the burger from the list of eaten burgers via the 'delete' button. 
+
 ![burger image 1](public/assets/images/burger-screenshot1.PNG)
 
 ###credits:

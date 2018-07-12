@@ -25,8 +25,9 @@ The application consists of a single page. The user may add a new burger to the 
 
 ### Credits:
 
-Icons made by <"http://www.freepik.com"> from <"https://www.flaticon.com/"> 
-Flaticon is licensed by <"http://creativecommons.org/licenses/by/3.0/>
+Icons made by <http://www.freepik.com> from <https://www.flaticon.com/> 
+
+Flaticon is licensed by <http://creativecommons.org/licenses/by/3.0/>
 
 
 

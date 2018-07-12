@@ -25,12 +25,13 @@ The application consists of a single page. The user may add a new burger to the 
 
 ### Credits:
 
-Icons made by <http://www.freepik.com> from <https://www.flaticon.com/> 
+Icons made by:
+* Flaticon from: <http://www.freepik.com> and <https://www.flaticon.com/> 
+* Good Ware from: <https://www.flaticon.com/authors/good-ware> 
+* Pixel Perfect from: <https://www.flaticon.com/authors/pixel-perfect>
 
 Flaticon is licensed by <http://creativecommons.org/licenses/by/3.0/>
 
+### Contributors:
 
-
-    <div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
-    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+* Nikolas Haug
